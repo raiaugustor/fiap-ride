@@ -39,3 +39,24 @@ deve existir na classe.*
 
 ---
 
+## Aula 2 — Métodos e Comportamentos
+
+### Teoria
+Se os **Atributos** são os substantivos/adjetivos de um objeto, os **Métodos** são os **verbos**
+— as ações que ele executa.
+
+Para que servem os métodos?
+1. **Alterar o estado** do objeto (ex: recarregar saldo).
+2. **Comunicar-se com outros objetos** (um objeto chama o método de outro).
+3. **Proteger regras de negócio** (impedir ações inválidas, como sacar sem saldo).
+
+Sem métodos, os objetos seriam apenas listas de dados sem inteligência.
+
+### Clean Code para métodos
+- **Ações são verbos:** `atualizarEstoque()`, `registrarAlta()`.
+- **Funções pequenas:** uma única responsabilidade por método — valida a regra e altera o estado.
+- **Nomes de parâmetros significativos:** `quantidadeComprada`, nunca `q` ou `x`.
+
+
+---
+
