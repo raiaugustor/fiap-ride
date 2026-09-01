@@ -60,3 +60,61 @@ Sem métodos, os objetos seriam apenas listas de dados sem inteligência.
 
 ---
 
+## Aula 2 — Métodos e Comportamentos
+
+### Teoria
+Se os **Atributos** são os substantivos/adjetivos de um objeto, os **Métodos** são os **verbos**
+— as ações que ele executa.
+
+Para que servem os métodos?
+1. **Alterar o estado** do objeto (ex: recarregar saldo).
+2. **Comunicar-se com outros objetos** (um objeto chama o método de outro).
+3. **Proteger regras de negócio** (impedir ações inválidas, como sacar sem saldo).
+
+Sem métodos, os objetos seriam apenas listas de dados sem inteligência.
+
+### Clean Code para métodos
+- **Ações são verbos:** `atualizarEstoque()`, `registrarAlta()`.
+- **Funções pequenas:** uma única responsabilidade por método — valida a regra e altera o estado.
+- **Nomes de parâmetros significativos:** `quantidadeComprada`, nunca `q` ou `x`.
+
+
+---
+
+## Aula 3 — Encapsulamento: Getters e Setters
+
+###  A Teoria: a cápsula e o caixa eletrônico
+
+O problema da Aula 2: mesmo tendo o método `adicionarSaldo()`, nada impedia alguém de fazer
+`passageiro1.saldo = -500.0;` diretamente, ignorando toda a regra de negócio.
+
+**Encapsulamento** é a técnica de esconder os detalhes internos de um objeto e proteger seus dados.
+
+> **Analogia:** o cofre de um caixa eletrônico é **privado**. Você não abre a tampa e pega o
+> dinheiro — o banco te dá uma tela com botões (**públicos**). Você clica em "Sacar", o sistema
+> valida, e só então a máquina mexe no cofre por você.
+
+### Modificadores de acesso
+| Modificador | Símbolo UML | Quem acessa |
+|---|---|---|
+| `private` | `-` | Somente a própria classe |
+| `public` | `+` | Qualquer classe do sistema |
+
+**Regra de ouro:** atributos **sempre** `private`. O acesso externo só acontece através de métodos
+controlados (`get`/`set`).
+
+---
+
+### Setter privado: por quê?
+Perceba que `setSaldo()` é **privado**. Em vez de deixar qualquer classe alterar o saldo
+livremente com `setSaldo(50)`, obrigamos o uso de métodos com regra de negócio clara:
+`adicionarSaldo()` e `pagarViagem()`. Isso é uma prática avançada de Clean Code — **não crie
+setters para tudo automaticamente**. Se um atributo nunca deve mudar depois de criado, ele
+**não deve** ter setter.
+
+> **Pergunta de reflexão:** por que é seguro deixar o `get` público, mas perigoso deixar o
+> atributo original público? Pense na diferença entre dar uma **cópia** de um documento e
+> entregar o **original** para alguém rasurar.
+
+---
+
