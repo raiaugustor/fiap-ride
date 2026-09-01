@@ -326,3 +326,61 @@ exatamente no momento do `new`, que garante que o objeto já nasça em um estado
 
 ---
 
+## Aula 5 — Associação de Objetos
+
+### A Teoria: o relacionamento "Tem-Um" (HAS-A)
+
+Até aqui, `Passageiro` e `Veiculo` funcionam isoladamente. Mas no mundo real, objetos **conversam**:
+uma corrida não existe no vácuo — ela precisa de um passageiro que a solicitou e de um veículo
+que vai realizá-la.
+
+**Associação** é a técnica de fazer uma classe "ter um" atributo cujo **tipo é outra classe**
+(e não um tipo primitivo como `String` ou `double`).
+
+> **Analogia:** um Computador tem atributos simples (`preco: double`), mas também **TEM UM**
+> Processador, **TEM UM** Teclado, **TEM UMA** PlacaMãe — cada um sendo, por si só, uma classe
+> complexa. É como montar um objeto grande usando objetos menores, como peças de Lego.
+
+No FiapRide:
+- Uma `Viagem` **TEM UM** `Passageiro`.
+- Uma `Viagem` **TEM UM** `Veiculo`.
+
+### Passagem por referência
+Quando um objeto é passado como parâmetro para dentro de outro, **não é feita uma cópia** — é
+enviada uma **referência** ao mesmo objeto na memória. Por isso, se o `saldo` do passageiro mudar
+*depois* de a viagem ser criada, a viagem "enxerga" esse novo valor — porque ambos apontam para
+o mesmo objeto.
+
+### Clean Code — nomes baseados em papéis
+O maior erro de iniciantes em associação é dar nomes genéricos às variáveis de referência.
+O nome da variável deve indicar o **papel** que o objeto desempenha ali, não repetir o nome da
+classe:
+
+- ❌ `Passageiro passageiro` dentro de `Viagem`
+- ✅ `Passageiro solicitante` (o papel que ele exerce naquela viagem)
+- ❌ `Veiculo carro`
+- ✅ `Veiculo veiculoUtilizado`
+
+
+> **Pergunta de reflexão:** por que o construtor de `Viagem` exige o objeto `Passageiro` inteiro,
+> em vez de só a `String` do nome? Pense nas regras de negócio: se a viagem guardasse só o texto
+> "Ana Silva", ela conseguiria descontar o saldo dela ao final da corrida?
+
+---
+
+##  Glossário Rápido
+
+| Termo | Definição resumida |
+|---|---|
+| **Classe** | O molde/estrutura que define atributos e métodos de um tipo de objeto |
+| **Objeto** | Uma instância concreta de uma classe, criada com `new` |
+| **Atributo** | Característica/dado que um objeto guarda (o "substantivo") |
+| **Método** | Ação/comportamento que um objeto executa (o "verbo") |
+| **Estado** | O conjunto de valores atuais dos atributos de um objeto |
+| **Abstração** | Modelar só o que é relevante para o domínio do negócio |
+| **Encapsulamento** | Esconder atributos (`private`) e controlar o acesso via `get`/`set` |
+| **Construtor** | Método especial, sem retorno e com o nome da classe, executado uma vez na criação do objeto |
+| **Associação (HAS-A)** | Uma classe possui um atributo cujo tipo é outra classe |
+| **Passagem por referência** | Enviar o "endereço" de um objeto, não uma cópia dos dados |
+
+---
