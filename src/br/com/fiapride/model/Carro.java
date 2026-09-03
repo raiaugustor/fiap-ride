@@ -16,4 +16,10 @@ public class Carro extends Veiculo{
     private void setCapacidadePassageiros(int capacidadePassageiros) {
         this.capacidadePassageiros = capacidadePassageiros;
     }
+
+    @Override
+    public String calcularAutonomia() {
+        double kmRestante = this.getNivelCombustivel() * 10;
+        return "Autonomia: " + kmRestante + "km (consumo de 10Km/1).";
+    }
 }

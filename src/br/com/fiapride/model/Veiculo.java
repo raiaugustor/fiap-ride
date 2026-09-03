@@ -6,6 +6,7 @@ public class Veiculo {
 
     private String placa;
     private String modelo;
+    private double nivelCombustivel;
 
     public Veiculo(String placa, String modelo) {
         this.setPlaca(placa);
@@ -33,5 +34,21 @@ public class Veiculo {
         } else {
     System.out.println("Erro de verificação: placaa informada é invalida!");
         }
+    }
+
+    public String calcularAutonomia() {
+        return "Autonomia não definida para um veículo genérico";
+    }
+
+    public void abaster(int quantidade) {
+        this.setNivelCombustivel( this.getNivelCombustivel() + quantidade);
+    }
+
+    public double getNivelCombustivel() {
+        return nivelCombustivel;
+    }
+
+    private void setNivelCombustivel(double nivelCombustivel) {
+        this.nivelCombustivel = nivelCombustivel;
     }
 }
