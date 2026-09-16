@@ -22,4 +22,9 @@ public class Carro extends Veiculo{
         double kmRestante = this.getNivelCombustivel() * 10;
         return "Autonomia: " + kmRestante + "km (consumo de 10Km/1).";
     }
+
+    @Override
+    public void exibirTipo() {
+        System.out.println("Sou um carro");
+    }
 }

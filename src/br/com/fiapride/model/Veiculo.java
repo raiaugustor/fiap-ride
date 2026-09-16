@@ -2,7 +2,7 @@ package br.com.fiapride.model;
 
 import javax.print.attribute.standard.NumberOfDocuments;
 
-public class Veiculo {
+public abstract class Veiculo {
 
     private String placa;
     private String modelo;
@@ -51,4 +51,6 @@ public class Veiculo {
     private void setNivelCombustivel(double nivelCombustivel) {
         this.nivelCombustivel = nivelCombustivel;
     }
+
+    public abstract void exibirTipo();
 }
