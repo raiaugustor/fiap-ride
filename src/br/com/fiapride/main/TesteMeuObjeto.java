@@ -4,14 +4,9 @@ import br.com.fiapride.main.Computador;
 
 public class TesteMeuObjeto {
     public static void main(String[] args) {
-        System.out.println("--- Teste do Meu Projeto Pessoal ---");
+        Computador C1 = new Computador();
 
-        Computador computadorFiap = new Computador();
-
-        computadorFiap.cor = "Preto";
-        computadorFiap.marca = "Dell";
-
-        System.out.println("Cor da garrafa: " + computadorFiap.cor);
-        System.out.println("Capacidade: " + computadorFiap.marca);
+        C1.setCor("Preto");
+        System.out.println(C1.getCor());
     }
 }

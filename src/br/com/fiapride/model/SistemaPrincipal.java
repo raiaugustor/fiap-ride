@@ -10,15 +10,5 @@ public class SistemaPrincipal {
 
         System.out.println("--- Iniciando o Sistema FiapRide --- \n");
 
-        Passageiro ana = new Passageiro("Ana Silva", "222.222.222-22");
-        Veiculo carroDoJoao = new Veiculo("ABC-1234", "Toyota Corolla0");
-
-        Viagem viagemDaAna = new Viagem("Avenida Paulista, 1000", ana, carroDoJoao);
-
-        viagemDaAna.exibirResumo();
-
-        ana.adicionarSaldo(50.0);
-
-        System.out.println("Saldo da ana consultado ATRAVÉS da viagem: R$: " + viagemDaAna.getSolicitante().getSaldo());
     }
 }
