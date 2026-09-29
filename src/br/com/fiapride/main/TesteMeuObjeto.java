@@ -4,7 +4,7 @@ import br.com.fiapride.main.Computador;
 
 public class TesteMeuObjeto {
     public static void main(String[] args) {
-        Computador C1 = new Computador();
+        Computador C1 = new Computador("Dell", "Computador","Preto");
 
         C1.setCor("Preto");
         System.out.println(C1.getCor());

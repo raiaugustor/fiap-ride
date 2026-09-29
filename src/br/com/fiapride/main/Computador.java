@@ -1,9 +1,15 @@
 package br.com.fiapride.main;
 
-public class Computador {
+public class Computador extends Eletrodometicos{
 
     private String cor;
-    private String marca;
+
+
+    //constructor
+    public Computador(String marca, String categoria, String cor){
+        super(marca, categoria);
+        this.cor = cor;
+    }
 
     //getters
     public String getCor() {
@@ -15,11 +21,4 @@ public class Computador {
         this.cor = cor;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca){
-        this.marca = marca;
-    }
 }
